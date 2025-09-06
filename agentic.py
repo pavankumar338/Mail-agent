@@ -74,7 +74,7 @@ with open('emails.json', 'r', encoding='utf-8') as f:
 
 
 llm=ChatGroq(temperature=0,
-        groq_api_key='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',
+        groq_api_key='',
         model_name='llama-3.3-70b-versatile')
 
 
@@ -118,4 +118,5 @@ qa_chain = RetrievalQA.from_chain_type(llm, retriever=retriever)
 user_input = st.text_input("Your question:")
 if user_input:
         response = qa_chain.invoke({"query": user_input})
+
         st.write("Answer:", response['result'])
